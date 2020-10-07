@@ -6,7 +6,7 @@ public class TicTacToe {
 	public char[] CreateBoard() {
 		char board[] = new char[10];
 		for (int i = 1; i < board.length; i++) {
-			board[i] = 'e';
+			board[i] = ' ';
 		}
 		return board;
 	}
@@ -27,6 +27,30 @@ public class TicTacToe {
 			}
 		}
 		return input;
+	}
+
+	public int ChoosePosition(char[] board) {
+		Scanner sc = new Scanner(System.in);
+		int position = 1;
+		boolean check = false;
+		while (!check) {
+			System.out.println("Choose the position on board from 1-9");
+			position = Integer.parseInt(sc.nextLine());
+			if (position >= 1 && position <= 9) {
+				check = true;
+				break;
+			} else {
+				System.out.println("Enter valid positon, Try again");
+			}
+		}
+		if (board[position] == ' ') {
+			return position;
+		} else {
+			System.out.println("This positon is filled, Try again");
+			position = 0;
+			return position;
+		}
+
 	}
 
 	public void ShowBoard(char board[]) {
