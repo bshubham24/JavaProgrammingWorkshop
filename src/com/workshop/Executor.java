@@ -17,6 +17,7 @@ public class Executor {
 			computer = 'X';
 		System.out.println("User: " + user);
 		System.out.println("Computer: " + computer);
+		tictactoe.ShowBoard(board);
 
 	}
 }

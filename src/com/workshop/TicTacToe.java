@@ -6,7 +6,7 @@ public class TicTacToe {
 	public char[] CreateBoard() {
 		char board[] = new char[10];
 		for (int i = 1; i < board.length; i++) {
-			board[i] = 'z';
+			board[i] = 'e';
 		}
 		return board;
 	}
@@ -18,7 +18,7 @@ public class TicTacToe {
 		return input;
 	}
 
-	public void DisplayBoard(char board[]) {
+	public void ShowBoard(char board[]) {
 		for (int i = 1; i < board.length; i++) {
 			System.out.println(board[i]);
 		}
