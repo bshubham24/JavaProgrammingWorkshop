@@ -17,8 +17,9 @@ public class TicTacToe {
 		char input = ' ';
 		while (!check) {
 			System.out.println("Choose X or O");
-			input = sc.next().charAt(0);
-			if (input == 'x' || input == 'o') {
+			input = Character.toUpperCase(sc.next().charAt(0));
+
+			if (input == 'X' || input == 'O') {
 				check = true;
 			}
 
@@ -40,13 +41,17 @@ public class TicTacToe {
 				check = true;
 				break;
 			} else {
+
 				System.out.println("Enter valid positon, Please Try again");
+
 			}
 		}
 		if (board[position] == ' ') {
 			return position;
 		} else {
+
 			System.out.println("This positon is filled, Please Try again");
+
 			position = 0;
 			return position;
 		}
@@ -55,11 +60,11 @@ public class TicTacToe {
 
 	public void ShowBoard(char board[]) {
 		System.out.println("-----------------");
-		System.out.println("| " + board[1] + " | " + board[1] + " | " + board[2] + " |");
+		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |");
 		System.out.println("-----------------");
-		System.out.println("| " + board[3] + " | " + board[4] + " | " + board[5] + " |");
+		System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] + " |");
 		System.out.println("-----------------");
-		System.out.println("| " + board[6] + " | " + board[7] + " | " + board[9] + " |");
+		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |");
 		System.out.println("-----------------");
 	}
 
