@@ -40,13 +40,13 @@ public class TicTacToe {
 				check = true;
 				break;
 			} else {
-				System.out.println("Enter valid positon, Try again");
+				System.out.println("Enter valid positon, Please Try again");
 			}
 		}
 		if (board[position] == ' ') {
 			return position;
 		} else {
-			System.out.println("This positon is filled, Try again");
+			System.out.println("This positon is filled, Please Try again");
 			position = 0;
 			return position;
 		}
