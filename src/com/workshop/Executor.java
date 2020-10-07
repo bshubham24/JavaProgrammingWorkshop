@@ -15,6 +15,7 @@ public class Executor {
 		if (toss == 'H') {
 			System.out.println("User won the toss, hence plays first");
 			while (choice != 2) {
+
 				user = tictactoe.TakeInput();
 				user = Character.toUpperCase(user);
 				if (user == 'X') {
@@ -32,6 +33,47 @@ public class Executor {
 						board[position] = user;
 					}
 					tictactoe.ShowBoard(board);
+
+					if ((board[1] == 'X' && board[2] == 'X' && board[3] == 'X')
+							|| (board[1] == 'O' && board[2] == 'O' && board[3] == 'O')) {
+						System.out.println("user wins!");
+						break;
+					}
+					if ((board[1] == 'X' && board[4] == 'X' && board[7] == 'X')
+							|| (board[1] == 'O' && board[4] == 'O' && board[7] == 'O')) {
+						System.out.println("user wins!");
+						break;
+					}
+					if ((board[1] == 'X' && board[5] == 'X' && board[9] == 'X')
+							|| (board[1] == 'O' && board[5] == 'O' && board[9] == 'O')) {
+						System.out.println("user wins!");
+						break;
+					}
+					if ((board[3] == 'X' && board[5] == 'X' && board[7] == 'X')
+							|| (board[3] == 'O' && board[5] == 'O' && board[7] == 'O')) {
+						System.out.println("user wins!");
+						break;
+					}
+					if ((board[2] == 'X' && board[5] == 'X' && board[8] == 'X')
+							|| (board[2] == 'O' && board[5] == 'O' && board[8] == 'O')) {
+						System.out.println("user wins!");
+						break;
+					}
+					if ((board[3] == 'X' && board[6] == 'X' && board[9] == 'X')
+							|| (board[3] == 'O' && board[6] == 'O' && board[9] == 'O')) {
+						System.out.println("user wins!");
+						break;
+					}
+					if ((board[4] == 'X' && board[5] == 'X' && board[6] == 'X')
+							|| (board[4] == 'O' && board[5] == 'O' && board[6] == 'O')) {
+						System.out.println("user wins!");
+						break;
+					}
+					if ((board[7] == 'X' && board[8] == 'X' && board[9] == 'X')
+							|| (board[7] == 'O' && board[8] == 'O' && board[9] == 'O')) {
+						System.out.println("user wins!");
+						break;
+					}
 
 				} else if (choice == 2) {
 					break;
