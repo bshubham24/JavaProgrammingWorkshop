@@ -17,8 +17,9 @@ public class TicTacToe {
 		char input = ' ';
 		while (!check) {
 			System.out.println("Choose X or O");
-			input = sc.next().charAt(0);
-			if (input == 'x' || input == 'o') {
+			input = Character.toUpperCase(sc.next().charAt(0));
+
+			if (input == 'X' || input == 'O') {
 				check = true;
 			}
 
@@ -40,13 +41,17 @@ public class TicTacToe {
 				check = true;
 				break;
 			} else {
-				System.out.println("Enter valid positon, Try again");
+
+				System.out.println("Enter valid positon, Please Try again");
+
 			}
 		}
 		if (board[position] == ' ') {
 			return position;
 		} else {
-			System.out.println("This positon is filled, Try again");
+
+			System.out.println("This positon is filled, Please Try again");
+
 			position = 0;
 			return position;
 		}
