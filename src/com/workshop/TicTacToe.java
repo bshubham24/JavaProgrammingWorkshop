@@ -58,6 +58,18 @@ public class TicTacToe {
 
 	}
 
+	public char Toss() {
+		int result = (int) Math.floor(Math.random() * 10) % 2;
+		char toss;
+		result++;
+		if (result == 1) {
+			toss = 'H';
+		} else {
+			toss = 'T';
+		}
+		return toss;
+	}
+
 	public void ShowBoard(char board[]) {
 		System.out.println("-----------------");
 		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |");
