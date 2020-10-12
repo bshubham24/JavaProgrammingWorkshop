@@ -147,14 +147,30 @@ public class TicTacToe {
 	public int blockMove(char user) {
 		int position = chanceOfWin(user);
 		if (position == 0) {
+			position = checkCorner();
+		}
+		return position;
+	}
+
+	public int checkCorner() {
+		if (board[1] == ' ')
+			return 1;
+		else if (board[3] == ' ')
+			return 3;
+		else if (board[7] == ' ')
+			return 7;
+		else if (board[9] == ' ')
+			return 9;
+		else {
+			int position = 0;
 			int temp = 0;
 			while (temp == 0) {
 				position = ((int) Math.floor(Math.random() * 10) % 9) + 1;
 				if (board[position] == ' ')
 					return position;
 			}
+			return position;
 		}
-		return position;
 	}
 
 	public void play(char toss) {
