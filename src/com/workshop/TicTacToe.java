@@ -162,6 +162,14 @@ public class TicTacToe {
 		else if (board[9] == ' ')
 			return 9;
 		else {
+			return checkMiddleOrSide();
+		}
+	}
+
+	public int checkMiddleOrSide() {
+		if (board[5] == ' ')
+			return 5;
+		else {
 			int position = 0;
 			int temp = 0;
 			while (temp == 0) {
