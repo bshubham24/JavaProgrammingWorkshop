@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
 	char board[] = new char[10];
+	char user, computer;
 
 	public char[] CreateBoard() {
 
@@ -89,54 +90,68 @@ public class TicTacToe {
 		return true;
 	}
 
-	public int computerChoice(char computer) {
-		int position = 0;
+	public int chanceOfWin(char computer) {
 		if (board[1] == ' ' && ((board[2] == computer && board[3] == computer)
 				|| (board[4] == computer && board[7] == computer) || (board[5] == computer && board[9] == computer)))
-			position = 1;
+			return 1;
 
 		if (board[2] == ' '
 				&& ((board[1] == computer && board[3] == computer) || (board[5] == computer && board[8] == computer)))
-			position = 2;
+			return 2;
 
 		if (board[3] == ' ' && ((board[2] == computer && board[1] == computer)
 				|| (board[6] == computer && board[9] == computer) || (board[5] == computer && board[7] == computer)))
-			position = 3;
+			return 3;
 
 		if (board[4] == ' '
 				&& ((board[1] == computer && board[7] == computer) || (board[5] == computer && board[6] == computer)))
-			position = 4;
+			return 4;
 
 		if (board[5] == ' ' && ((board[1] == computer && board[9] == computer)
 				|| (board[3] == computer && board[7] == computer) || (board[2] == computer && board[8] == computer)
 				|| (board[4] == computer && board[6] == computer)))
-			position = 5;
+			return 5;
 
 		if (board[6] == ' '
 				&& ((board[3] == computer && board[9] == computer) || (board[5] == computer && board[4] == computer)))
-			position = 6;
+			return 6;
 
 		if (board[7] == ' ' && ((board[1] == computer && board[4] == computer)
 				|| (board[9] == computer && board[8] == computer) || (board[5] == computer && board[3] == computer)))
-			position = 7;
+			return 7;
 
 		if (board[8] == ' '
 				&& ((board[2] == computer && board[5] == computer) || (board[7] == computer && board[9] == computer)))
-			position = 8;
+			return 8;
 
 		if (board[9] == ' ' && ((board[7] == computer && board[8] == computer)
 				|| (board[3] == computer && board[6] == computer) || (board[5] == computer && board[1] == computer)))
-			position = 9;
+			return 9;
+
+		return 0;
+
+	}
+
+	public int computerChoice(char computer) {
+		int position = chanceOfWin(computer);
+		if (position != 0) {
+			return position;
+		}
 
 		else {
+			position = blockMove(user);
+		}
+		return position;
+	}
+
+	public int blockMove(char user) {
+		int position = chanceOfWin(user);
+		if (position == 0) {
 			int temp = 0;
 			while (temp == 0) {
 				position = ((int) Math.floor(Math.random() * 10) % 9) + 1;
-				if (board[position] == ' ') {
-					temp = 1;
+				if (board[position] == ' ')
 					return position;
-				}
-
 			}
 		}
 		return position;
@@ -144,7 +159,6 @@ public class TicTacToe {
 
 	public void play(char toss) {
 
-		char user, computer;
 		char currentPlayer = ' ';
 		int position;
 		int end = 0;
